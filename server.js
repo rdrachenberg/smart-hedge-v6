@@ -7,7 +7,6 @@ const port = process.env.PORT || 8080;
 const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
-const configSecret = ("./config.secret");
 
 (function () {
   let childProcess = require("child_process");
@@ -28,7 +27,7 @@ const configSecret = ("./config.secret");
 
   const app = express();
 
-  app.use(express.static(path.join(__dirname, "client/build")));
+  app.use(express.static(path.join(__dirname, "build_webpack")));
 
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
